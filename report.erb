@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Pilot', 'Shipment', 'Creats', 'Money'],
+          ['Fry',     11],
+          ['Amy',      2],
+          ['Bender',  2],
+          ['', 2],
+          ['Jupiter',    7]
+          ['Pluto', ]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <title></title>
+  </head>
+  <body>
+    Planet Express Log
+
+    <p>
+      Total Money Made This Week <%= responses.count %> responses.
+    </p>
+    <p>
+      Money Delivered: <%= money_delivered %>
+    </p>
+    <p>
+      Fry: <%= fry_money %> 
+    </p>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
