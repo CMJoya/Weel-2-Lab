@@ -9,10 +9,10 @@
 
           var data = google.visualization.arrayToDataTable([
             ['Pilot', 'Money Deliverd'],
-            ['fry',     <%= fry_money %>],
-            ['amy',      <%= amy_money %>],
-            ['bender',  <%= bender_money %>],
-            ['leela', <%= leela_money %>],
+            ['fry',     <%= total_fry_money %>],
+            ['amy',      <%= total_amy_money %>],
+            ['bender',  <%= total_bender_money %>],
+            ['leela', <%= total_leela_money %>],
           ]);
 
           var options = {
@@ -37,18 +37,14 @@
     </p>
     <p>
       Fry: <%= fry_money %>
-    </p>
-    <p>
+
       Amy: <%= amy_money %>
-    </p>
-    <p>
+
       Bender: <%= bender_money %>
-    </p>
-    <p>
+
       Leela: <%= leela_money %>
     </p>
 
     <div id="piechart" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
-
