@@ -39,6 +39,15 @@ end
 
 puts "========"
 
+
+total_fry_money = [30000,5000].reduce(:+)
+total_amy_money = [15000].reduce(:+)
+total_bender_money = [345600,10000].reduce(:+)
+total_leela_money = [44500,3451,2344,1000,80000].reduce(:+)
+
+total_money_delivered = [30000,5000,15000,345600,10000,445000,3451,2344,1000,80000].reduce(:+)
+
+
 fry_money = fry.map do |hashcut|
   hashcut["Money"].to_i
 end
@@ -55,12 +64,12 @@ leela_money = leela.map do |hashcut|
   hashcut["Money"].to_i
 end
 
-total_fry_money = [4,5].reduce(:+)
-total_amy_money = [4,5].reduce(:+)
-total_bender_money = [4,5].reduce(:+)
-total_leela_money = [4,5].reduce(:+)
 
+shipment = []
 
+shipment = shipment.map do |hashcut|
+  hashcut["Shipment"]
+end
 
 new_html = ERB.new(html).result(binding)
 
