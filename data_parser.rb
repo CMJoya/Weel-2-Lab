@@ -8,7 +8,7 @@ html = File.read("report.erb")
 
 #replace with values
 
-page_title = "Planet Express Log"
+pageTitle = "Planet Express Log"
 
 responses = []
 
@@ -16,7 +16,7 @@ CSV.foreach("planet_express_log.csv", headers: true) do |row|
   responses << row.to_hash
 end
 
-money_delivered = responses.map do |responses|
+moneyDelivered = responses.map do |responses|
   responses["Money"].to_i
 end
 
@@ -40,36 +40,36 @@ end
 puts "========"
 
 
-total_fry_money = [30000,5000].reduce(:+)
-total_amy_money = [15000].reduce(:+)
-total_bender_money = [345600,10000].reduce(:+)
-total_leela_money = [44500,3451,2344,1000,80000].reduce(:+)
+totalFryMoney = [30000,5000].reduce(:+).to_i
+totalAmyMoney = [15000].reduce(:+).to_i
+totalBenderMoney = [345600,10000].reduce(:+).to_i
+totalLeelaMoney = [44500,3451,2344,1000,80000].reduce(:+).to_i
 
-total_money_delivered = [30000,5000,15000,345600,10000,445000,3451,2344,1000,80000].reduce(:+)
+totalMoneyDelivered = [30000,5000,15000,345600,10000,445000,3451,2344,1000,80000].reduce(:+).to_i
 
 
-fry_money = fry.map do |hashcut|
+fryMoney = fry.map do |hashcut|
   hashcut["Money"].to_i
 end
 
-amy_money = amy.map do |hashcut|
+amyMoney = amy.map do |hashcut|
   hashcut["Money"].to_i
 end
 
-bender_money = bender.map do |hashcut|
+benderMoney = bender.map do |hashcut|
   hashcut["Money"].to_i
 end
 
-leela_money = leela.map do |hashcut|
+leelaMoney = leela.map do |hashcut|
   hashcut["Money"].to_i
 end
 
+fryBonus = totalFryMoney * 0.10
+amyBonus = totalAmyMoney * 0.10
+benderBonus = totalBenderMoney * 0.10
+leelaBonus = totalLeelaMoney * 0.10
 
-shipment = []
 
-shipment = shipment.map do |hashcut|
-  hashcut["Shipment"]
-end
 
 new_html = ERB.new(html).result(binding)
 
