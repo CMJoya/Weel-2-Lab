@@ -41,23 +41,17 @@ puts "========"
 fry_money = fry.map do |hashcut|
   hashcut["Money"]
 end
-puts fry_money.inspect
 
 amy_money = amy.map do |hashcut|
   hashcut["Money"]
 end
-puts amy_money.inspect
 bender_money = bender.map do |hashcut|
   hashcut["Money"]
 end
-puts bender_money.inspect
 leela_money = leela.map do |hashcut|
   hashcut["Money"]
 end
-puts leela_money.inspect
 
-employee = employee.uniq
-#
 
 new_html = ERB.new(html).result(binding)
 
