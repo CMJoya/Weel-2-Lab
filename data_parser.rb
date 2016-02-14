@@ -1,69 +1,50 @@
-require "csv"
-require "erb"
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
 
+          var data = google.visualization.arrayToDataTable([
+            ['Pilot', 'Money Deliverd'],
+            ['fry',     <%= total_fry_money %>],
+            ['amy',      <%= total_amy_money %>],
+            ['bender',  <%= total_bender_money %>],
+            ['leela', <%= total_leela_money %>],
+          ]);
 
-#read
+          var options = {
+            title: 'Planet Express Log'
+          };
 
-html = File.read("report.erb")
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-#replace with values
+          chart.draw(data, options);
+        }
+      </script>
+    <title></title>
+  </head>
+  <body>
+    Planet Express Log
 
-page_title = "Planet Express Log"
+    <p>
+      Total Money Made This Week <%= responses.count %> responses.
+    </p>
+    <p>
+      Money Delivered: <%= money_delivered %>
+    </p>
+    <p>
+      Fry: <%= fry_money %>
 
-responses = []
+      Amy: <%= amy_money %>
 
-CSV.foreach("planet_express_log.csv", headers: true) do |row|
-  responses << row.to_hash
-end
+      Bender: <%= bender_money %>
 
-money_delivered = responses.map do |responses|
-  responses["Money"].to_i
-end
+      Leela: <%= leela_money %>
+    </p>
 
-fry = []
-amy = []
-bender = []
-leela = []
-
-destination = responses.map do |hashcut|
-if hashcut["Destination"] == "Earth"
-  fry << hashcut
-elsif hashcut["Destination"] == "Mars"
-  amy << hashcut
-elsif hashcut["Destination"]== "Uranus"
-  bender << hashcut
-else
-  leela << hashcut
-end
-end
-
-puts "========"
-fry_money = fry.map do |hashcut|
-  hashcut["Money"]
-end
-
-amy_money = amy.map do |hashcut|
-  hashcut["Money"]
-end
-bender_money = bender.map do |hashcut|
-  hashcut["Money"]
-end
-leela_money = leela.map do |hashcut|
-  hashcut["Money"]
-end
-
-
-new_html = ERB.new(html).result(binding)
-
-#writes the Html File
-File.open("report.html", "wb") do |file|
-  file.write(new_html)
-  file.close
-end
-
-
-#jesses sample
-# require 'csv'
-# CSV.foreach("planet_express_logs.csv", headers: true) do |row|
-#   puts row.inspect # replace with your logic
-# end
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
