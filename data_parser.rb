@@ -1,7 +1,6 @@
 require "csv"
 require "erb"
 
-
 #read
 
 html = File.read("report.erb")
@@ -10,14 +9,14 @@ html = File.read("report.erb")
 
 pageTitle = "Planet Express Log"
 
-responses = []
+response = []
 
 CSV.foreach("planet_express_log.csv", headers: true) do |row|
-  responses << row.to_hash
+  response << row.to_hash
 end
 
-moneyDelivered = responses.map do |responses|
-  responses["Money"].to_i
+totalMoneyDelivered = response.map do |response|
+  response ["Money"].to_i
 end
 
 fry = []
@@ -25,7 +24,8 @@ amy = []
 bender = []
 leela = []
 
-destination = responses.map do |hashcut|
+
+destination = response.each do |hashcut|
 if hashcut["Destination"] == "Earth"
   fry << hashcut
 elsif hashcut["Destination"] == "Mars"
@@ -38,14 +38,6 @@ end
 end
 
 puts "========"
-
-
-totalFryMoney = [30000,5000].reduce(:+).to_i
-totalAmyMoney = [15000].reduce(:+).to_i
-totalBenderMoney = [345600,10000].reduce(:+).to_i
-totalLeelaMoney = [44500,3451,2344,1000,80000].reduce(:+).to_i
-
-totalMoneyDelivered = [30000,5000,15000,345600,10000,445000,3451,2344,1000,80000].reduce(:+).to_i
 
 
 fryMoney = fry.map do |hashcut|
@@ -63,6 +55,12 @@ end
 leelaMoney = leela.map do |hashcut|
   hashcut["Money"].to_i
 end
+totalFryMoney = fryMoney.reduce(:+).to_i
+totalAmyMoney = amyMoney.reduce(:+).to_i
+totalBenderMoney = benderMoney.reduce(:+).to_i
+totalLeelaMoney = leelaMoney.reduce(:+).to_i
+
+totalMoneyDelivered = totalMoneyDelivered.reduce(:+).to_i
 
 fryBonus = totalFryMoney * 0.10
 amyBonus = totalAmyMoney * 0.10
@@ -78,7 +76,6 @@ File.open("report.html", "wb") do |file|
   file.write(new_html)
   file.close
 end
-
 
 #jesses sample
 # require 'csv'
