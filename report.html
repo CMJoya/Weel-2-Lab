@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+
+
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <script type="text/javascript">
+      google.charts.load('current', {'packages': ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          [
+            'Pilot', 'Money Deliverd'
+          ],
+          [
+            'Fry', 35000
+          ],
+          [
+            'Amy', 15000
+          ],
+          [
+            'Bender', 355600
+          ],
+          ['Leela', 131295]
+        ]);
+
+        var options = {
+          title: 'Planet Express Log'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+    <title>
+      Planet Express Revenue
+    </title>
+
+  </head>
+  <div class="bodyContainer">
+
+  <body>
+    <p>
+      Total Money Made This Week:
+      937395
+    </p>
+    <p>
+      <!-- Fry:
+      35000
+      Amy:
+      15000
+      Bender:
+      355600
+      Leela:
+      131295 -->
+    </p>
+    <div id="piechart" style="width: 500px; height: 500px;">
+    </div>
+    <div id="table_div">
+    </div>
+
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Employees
+        </th>
+        <th>
+          Number of Trips
+        </th>
+        <th>
+          Bonus
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Fry
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          3500.0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Amy
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1500.0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Bender
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          35560.0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Leela
+        </td>
+        <td>
+          5
+        </td>
+        <td>
+          13129.5
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</br>
+<img src="https://media.giphy.com/media/vSoHbyABFCunS/giphy.gif"/>
+</br>
+<table class="planetsTable">
+<thead>
+  <tr>
+    <th>
+      Planet
+    </th>
+    <th>
+      Money Made
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+      Earth
+    </td>
+    <td>
+      35000.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mercury
+    </td>
+    <td>
+      80000.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Moon
+    </td>
+    <td>
+      44500.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mars
+    </td>
+    <td>
+      15000.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Jupiter
+    </td>
+    <td>
+      3451.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Saturn
+    </td>
+    <td>
+      1000.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pluto
+    </td>
+    <td>
+      2344.0
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</body>
+</div>
+</html>
