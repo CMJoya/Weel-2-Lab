@@ -6,7 +6,7 @@
 
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <h1>
+
       <script type="text/javascript">
       google.charts.load('current', {'packages': ['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -37,7 +37,7 @@
         chart.draw(data, options);
       }
     </script>
-  </h1>
+
 
 
 
@@ -46,6 +46,8 @@
     </title>
 
   </head>
+  <div class="bodyContainer">
+
   <body>
     <p>
       Total Money Made This Week:
@@ -61,8 +63,10 @@
       Leela:
       <%= totalLeelaMoney %> -->
     </p>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
-    <div id="table_div"></div>
+    <div id="piechart" style="width: 500px; height: 500px;">
+    </div>
+    <div id="table_div">
+    </div>
 
   </table>
   <table>
@@ -201,4 +205,5 @@
 </table>
 
 </body>
+</div>
 </html>
